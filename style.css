@@ -132,80 +132,87 @@ button {
     }
 }
 
-
 /* =========================================================
-   3. BACKGROUND SLIDESHOW
+   BACKGROUND SLIDESHOW
    ========================================================= */
 
 .slideshow {
     position: fixed;
     inset: 0;
-    z-index: -3;
-
     width: 100%;
     height: 100vh;
-
-    background-image: url("DSC_5477.JPG");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    animation: changeBg 30s infinite;
+    overflow: hidden;
+    z-index: -10;
+    background: #000;
 }
 
-.slideshow::after {
-    content: "";
+.slide {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.78) 0%,
-            rgba(0, 0, 0, 0.45) 45%,
-            rgba(0, 0, 0, 0.9) 100%
-        );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    opacity: 0;
+    animation: backgroundFade 30s infinite;
 }
 
-/* The empty slide elements are intentionally hidden.
-   The background image is controlled by CSS animation. */
-
-.slideshow .slide {
-    display: none;
+/* Your actual photography */
+.slide-1 {
+    background-image: url("DSC_5477.JPG");
+    animation-delay: 0s;
 }
 
-@keyframes changeBg {
+.slide-2 {
+    background-image: url("DSC_5679.JPG");
+    animation-delay: 5s;
+}
 
-    0%,
-    16% {
-        background-image: url("DSC_5477.JPG");
+.slide-3 {
+    background-image: url("DSC_5700.JPG");
+    animation-delay: 10s;
+}
+
+.slide-4 {
+    background-image: url("DSC_5826.JPG");
+    animation-delay: 15s;
+}
+
+.slide-5 {
+    background-image: url("DSC_5870.JPG");
+    animation-delay: 20s;
+}
+
+.slide-6 {
+    background-image: url("DSC_5908.JPG");
+    animation-delay: 25s;
+}
+
+@keyframes backgroundFade {
+
+    0% {
+        opacity: 0;
     }
 
-    20%,
-    36% {
-        background-image: url("DSC_5679.JPG");
+    8% {
+        opacity: 1;
     }
 
-    40%,
-    56% {
-        background-image: url("DSC_5700.JPG");
+    25% {
+        opacity: 1;
     }
 
-    60%,
-    76% {
-        background-image: url("DSC_5826.JPG");
-    }
-
-    80%,
-    96% {
-        background-image: url("DSC_5870.JPG");
+    33% {
+        opacity: 0;
     }
 
     100% {
-        background-image: url("DSC_5477.JPG");
+        opacity: 0;
     }
 }
-
 
 /* =========================================================
    4. HEADER / NAVIGATION
