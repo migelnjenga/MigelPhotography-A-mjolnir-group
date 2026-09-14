@@ -126,32 +126,32 @@ ul {
 /* Change these paths if your photos are inside an images folder */
 
 .slide-1 {
-    background-image: url("DSC_5477.JPG");
+    background-image: url("DSC_5160.JPG");
     animation-delay: 0s;
 }
 
 .slide-2 {
-    background-image: url("DSC_5679.JPG");
+    background-image: url("DSC_5119.JPG");
     animation-delay: 5s;
 }
 
 .slide-3 {
-    background-image: url("DSC_5700.JPG");
+    background-image: url("DSC_5404.JPG");
     animation-delay: 10s;
 }
 
 .slide-4 {
-    background-image: url("DSC_5826.JPG");
+    background-image: url("DSC_5412.JPG");
     animation-delay: 15s;
 }
 
 .slide-5 {
-    background-image: url("DSC_5870.JPG");
+    background-image: url("DSC_5476.JPG");
     animation-delay: 20s;
 }
 
 .slide-6 {
-    background-image: url("DSC_5908.JPG");
+    background-image: url("DSC_5477.JPG");
     animation-delay: 25s;
 }
 
