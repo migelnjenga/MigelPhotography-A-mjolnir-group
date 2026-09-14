@@ -166,3 +166,297 @@ footer {
   text-align: center;
   color: gold;
 }
+/* =========================================
+   IMAGE REVEAL
+   ========================================= */
+
+.gallery img {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        filter 0.4s ease;
+}
+
+.gallery img.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.08);
+}
+
+
+/* =========================================
+   HEADER SCROLL EFFECT
+   ========================================= */
+
+header {
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        backdrop-filter 0.3s ease;
+}
+
+header.scrolled {
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   ACTIVE NAVIGATION LINK
+   ========================================= */
+
+nav ul li a {
+    position: relative;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   LIGHTBOX
+   ========================================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.96);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-image {
+    max-width: 85vw;
+    max-height: 85vh;
+
+    object-fit: contain;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 20px 80px rgba(0, 0, 0, 0.8);
+}
+
+
+.lightbox button {
+    position: absolute;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.lightbox button:hover {
+    transform: scale(1.15);
+    opacity: 0.75;
+}
+
+
+.lightbox-close {
+    top: 25px;
+    right: 35px;
+
+    font-size: 42px;
+}
+
+
+.lightbox-prev {
+    left: 30px;
+
+    font-size: 50px;
+}
+
+
+.lightbox-next {
+    right: 30px;
+
+    font-size: 50px;
+}
+
+
+.lightbox-counter {
+    position: absolute;
+    bottom: 25px;
+
+    color: white;
+
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+
+/* =========================================
+   MOBILE MENU
+   ========================================= */
+
+.menu-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 25px;
+    height: 2px;
+
+    background: currentColor;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 20px;
+
+        background: rgba(10, 10, 10, 0.97);
+
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 12px 5px;
+    }
+
+    .lightbox-image {
+        max-width: 94vw;
+        max-height: 75vh;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+        font-size: 35px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+        font-size: 35px;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 20px;
+        font-size: 35px;
+    }
+}
+
+
+/* =========================================
+   BROKEN IMAGE
+   ========================================= */
+
+.image-error {
+    opacity: 0.35 !important;
+    filter: grayscale(1);
+}
